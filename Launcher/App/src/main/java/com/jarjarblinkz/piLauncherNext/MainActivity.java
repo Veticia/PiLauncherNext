@@ -1,4 +1,4 @@
-package com.veticia.piLauncherNext;
+package com.jarjarblinkz.piLauncherNext;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -34,12 +35,12 @@ import android.widget.TextView;
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
-import com.veticia.piLauncherNext.platforms.AbstractPlatform;
-import com.veticia.piLauncherNext.platforms.PSPPlatform;
-import com.veticia.piLauncherNext.platforms.VRPlatform;
-import com.veticia.piLauncherNext.ui.AppsAdapter;
-import com.veticia.piLauncherNext.ui.GroupsAdapter;
-import com.veticia.piLauncherNext.ui.SettingsGroup;
+import com.jarjarblinkz.piLauncherNext.platforms.AbstractPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.PSPPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.VRPlatform;
+import com.jarjarblinkz.piLauncherNext.ui.AppsAdapter;
+import com.jarjarblinkz.piLauncherNext.ui.GroupsAdapter;
+import com.jarjarblinkz.piLauncherNext.ui.SettingsGroup;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -55,53 +56,53 @@ import br.tiagohm.markdownview.MarkdownView;
 import br.tiagohm.markdownview.css.InternalStyleSheet;
 import br.tiagohm.markdownview.css.styles.Github;
 
-public class MainActivity extends Activity
-{
-    private static final String CUSTOM_THEME = "theme.png";
-    private static final boolean DEFAULT_NAMES = true;
-    private static final int DEFAULT_OPACITY = 7;
+public class MainActivity extends Activity {
     public static final int DEFAULT_SCALE = 2;
-    private static final int DEFAULT_THEME = 0;
     public static final int DEFAULT_STYLE = 0;
     public static final int PICK_ICON_CODE = 450;
     public static final int PICK_THEME_CODE = 95;
-
+    public static final String[] STYLES = {
+            "banners",
+            "icons",
+            "tenaldo_square"
+    };
+    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
+    private static final String CUSTOM_THEME = "theme.png";
+    private static final boolean DEFAULT_NAMES = true;
+    private static final int DEFAULT_OPACITY = 7;
+    private static final int DEFAULT_THEME = 0;
     private static final int[] SCALES = {82, 99, 125, 165, 236};
     private static final int[] THEMES = {
             R.drawable.bkg_default,
             R.drawable.bkg_glass,
             R.drawable.bkg_rgb,
             R.drawable.bkg_skin,
-            R.drawable.bkg_underwater
-    };
-
-    public static final String[] STYLES = {
-            "banners",
-            "icons",
-            "tenaldo_square"
+            R.drawable.bkg_underwater,
     };
     private static final boolean DEFAULT_AUTORUN = true;
-    public static final String EMULATOR_PACKAGE = "org.ppsspp.ppssppvr";
-
+    public static SharedPreferences sharedPreferences;
     private static ImageView[] selectedThemeImageViews;
-
+    private final Handler handler = new Handler();
+    // Edit Mode
+    Set<String> currentSelectedApps = new HashSet<>();
     private GridView appGridView;
     private ImageView backgroundImageView;
     private GridView groupPanelGridView;
-
     @SuppressWarnings("unused")
     private boolean activityHasFocus;
-    public static SharedPreferences sharedPreferences;
     private SettingsProvider settingsProvider;
     private AppsAdapter.SORT_FIELD mSortField = AppsAdapter.SORT_FIELD.APP_NAME;
     private AppsAdapter.SORT_ORDER mSortOrder = AppsAdapter.SORT_ORDER.ASCENDING;
+    private long lastUpdateCheck = 0L;
+    private ImageView mSelectedImageView;
+    private boolean isSettingsLookOpen = false;
 
     public static void reset(Context context) {
         try {
             Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
-            ((Activity)context).finish();
+            ((Activity) context).finish();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -109,8 +110,7 @@ public class MainActivity extends Activity
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (AbstractPlatform.isMagicLeapHeadset()) {
@@ -127,12 +127,26 @@ public class MainActivity extends Activity
         // Handle group click listener
         groupPanelGridView.setOnItemClickListener((parent, view, position, id) -> {
             List<String> groups = settingsProvider.getAppGroupsSorted(false);
-            if (position == groups.size()) {
-                settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
-            } else if (position == groups.size() + 1) {
-                settingsProvider.selectGroup(settingsProvider.addGroup());
+            if (!currentSelectedApps.isEmpty()) {
+                HashSet<String> moved = new HashSet<>();
+                // this is a little jank but it works
+                GroupsAdapter adapter = (GroupsAdapter) groupPanelGridView.getAdapter();
+                for (String app : currentSelectedApps) {
+                    // move the specified app to the group
+                    adapter.setGroup(app, position);
+                    moved.add(app);
+                }
+                // deselect all apps that were moved
+                currentSelectedApps.removeAll(moved);
+                updateSelectionHint();
             } else {
-                settingsProvider.selectGroup(groups.get(position));
+                if (position == groups.size()) {
+                    settingsProvider.selectGroup(GroupsAdapter.HIDDEN_GROUP);
+                } else if (position == groups.size() + 1) {
+                    settingsProvider.selectGroup(settingsProvider.addGroup());
+                } else {
+                    settingsProvider.selectGroup(groups.get(position));
+                }
             }
             reloadUI();
         });
@@ -234,19 +248,22 @@ public class MainActivity extends Activity
         update.setOnClickListener(view -> showUpdateMain());
         checkForUpdates(update);
     }
-    private long lastUpdateCheck = 0L;
 
     private void checkForUpdates(View update) {
+        // disable all update checks
+        if (true) {
+            return;
+        }
         //once every 4 hours
         long updateInterval = 1000 * 60 * 60 * 4;
-        if(lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
+        if (lastUpdateCheck + updateInterval > System.currentTimeMillis()) {
             return;
         }
         new Thread(() -> {
             lastUpdateCheck = System.currentTimeMillis();
             String string = "";
             try {
-                URL url = new URL("https://raw.githubusercontent.com/Veticia/binaries/main/latestPiLauncher");
+                URL url = new URL("https://www.oculus.com/experiences/quest/section/2735199833461641/");
                 BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
                 StringBuilder stringBuilder = new StringBuilder();
                 String line;
@@ -268,11 +285,11 @@ public class MainActivity extends Activity
                 // Handle the exception here
                 newestVersion = 0; // Set a default value
             }
-            if(versionCode < newestVersion){
+            if (versionCode < newestVersion) {
                 runOnUiThread(() -> update.setVisibility(View.VISIBLE));
             }
         }).start();
-   }
+    }
 
     @Override
     public void onBackPressed() {
@@ -308,8 +325,6 @@ public class MainActivity extends Activity
             requestPermissions(permissions, 0);
         }
     }
-
-    private ImageView mSelectedImageView;
 
     public void setSelectedImageView(ImageView imageView) {
         mSelectedImageView = imageView;
@@ -407,8 +422,6 @@ public class MainActivity extends Activity
         return dialog;
     }
 
-    private boolean isSettingsLookOpen = false;
-
     private void showSettingsMain() {
 
         Dialog dialog = showPopup(R.layout.dialog_settings);
@@ -441,6 +454,9 @@ public class MainActivity extends Activity
         });
         dialog.findViewById(R.id.settings_platforms).setOnClickListener(view -> showSettingsPlatforms());
         dialog.findViewById(R.id.settings_tweaks).setOnClickListener(view -> showSettingsTweaks());
+        //add webkit for new releases
+        dialog.findViewById(R.id.settings_webview).setOnClickListener((view -> showSettingsNew()));
+        //
         dialog.findViewById(R.id.settings_device).setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -463,14 +479,14 @@ public class MainActivity extends Activity
         css.addRule("body", "color: #FFF", "background: rgba(0,0,0,0);");
         mMarkdownView.addStyleSheet(css);
         mMarkdownView.setBackgroundColor(Color.TRANSPARENT);
-        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/Veticia/PiLauncherNext/main/CHANGELOG.md",
-            "**Couldn't load changelog. Check [here](https://github.com/Veticia/binaries/tree/main/releases) for the latest file.**");
+        mMarkdownView.loadMarkdownFromUrlFallback("https://raw.githubusercontent.com/jarjarblinkz/PiLauncherNext/main/CHANGELOG.md",
+                "**Couldn't load changelog. Check [here](https://github.com/JarJarBlinkz/PiLauncherNext/releases) for the latest file.**");
     }
 
     private void showSettingsLook() {
         Dialog d = showPopup(R.layout.dialog_look);
         d.setOnDismissListener(dialogInterface -> isSettingsLookOpen = false);
-        d.findViewById(R.id.open_accesibility).setOnClickListener(view -> {
+        d.findViewById(R.id.open_accessibility).setOnClickListener(view -> {
             ButtonManager.isAccessibilityInitialized(this);
             ButtonManager.requestAccessibility(this);
         });
@@ -499,10 +515,12 @@ public class MainActivity extends Activity
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         SeekBar scale = d.findViewById(R.id.bar_scale);
@@ -521,10 +539,12 @@ public class MainActivity extends Activity
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
         int theme = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_THEME, DEFAULT_THEME);
@@ -553,7 +573,9 @@ public class MainActivity extends Activity
             });
         }
         int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-        if (style >= STYLES.length) { style = 0; }
+        if (style >= STYLES.length) {
+            style = 0;
+        }
         ImageView[] styles = {
                 d.findViewById(R.id.style0),
                 d.findViewById(R.id.style1),
@@ -575,7 +597,6 @@ public class MainActivity extends Activity
             editor.apply();
         });
     }
-
 
     private void showSettingsPlatforms() {
         Dialog d = showPopup(R.layout.dialog_platforms);
@@ -622,16 +643,24 @@ public class MainActivity extends Activity
         d.findViewById(R.id.service_os_updater).setOnClickListener(view -> openAppDetails("com.oculus.updater"));
     }
 
+    //add webkit for new releases
+    @SuppressLint("SetJavaScriptEnabled")
+    private void showSettingsNew() {
+        Dialog d = showPopup(R.layout.dialog_webview);
+        WebView NewReleases = d.findViewById(R.id.new_releases_webview);
+        NewReleases.getSettings().setDomStorageEnabled(true);
+        NewReleases.getSettings().setJavaScriptEnabled(true);
+        NewReleases.loadUrl("https://www.oculus.com/experiences/quest/section/2540605779297669/#/?_k=n7l7da");
+    }
+
     private int getPixelFromDip(int dip) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
     }
 
-    private final Handler handler = new Handler();
-
     public boolean openApp(ApplicationInfo app) {
         settingsProvider.updateRecent(app.packageName, System.currentTimeMillis());
         AbstractPlatform platform = AbstractPlatform.getPlatform(app);
-        if(!platform.runApp(this, app, false)){
+        if (!platform.runApp(this, app, false)) {
             TextView toastText = findViewById(R.id.toast_text);
             toastText.setText(R.string.failed_to_launch);
             toastText.setVisibility(View.VISIBLE);
@@ -658,5 +687,31 @@ public class MainActivity extends Activity
         Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:" + pkg));
         startActivity(intent);
+    }
+
+    public boolean selectApp(String app) {
+
+        if (currentSelectedApps.contains(app)) {
+            currentSelectedApps.remove(app);
+            updateSelectionHint();
+            return false;
+        } else {
+            currentSelectedApps.add(app);
+            updateSelectionHint();
+
+            return true;
+        }
+    }
+
+    void updateSelectionHint() {
+        TextView selectionHint = findViewById(R.id.SelectionHint);
+
+        final int size = currentSelectedApps.size();
+        if (size == 1) {
+            selectionHint.setText(R.string.selection_hint_single);
+        } else {
+            selectionHint.setText(getResources().getString(R.string.selection_hint_multiple, size));
+        }
+        selectionHint.setVisibility(currentSelectedApps.isEmpty() ? View.INVISIBLE : View.VISIBLE);
     }
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplikace</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">Aplikace Prozkoumat</string>
     <string name="service_os_updater">Aktualizátor OS</string>
 
-    <string name="accesibility_label">Nahraďte aplikaci Prozkoumat</string>
-    <string name="accesibility_button">Otevřete nastavení</string>
-    <string name="accesibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>
+    <string name="accessibility_label">Nahraďte aplikaci Prozkoumat</string>
+    <string name="accessibility_button">Otevřete nastavení</string>
+    <string name="accessibility_tooltip">Povolte 爪 Launcher v nabídce usnadnění</string>
     <string name="icons_style">Styl ikon</string>
     <string name="update_header">K dispozici je nová verze</string>
     <string name="autorun">Spusťte 爪 Launcher při spuštění systému</string>
     <string name="failed_to_launch">Spuštění se nezdařilo</string>
     <string name="default_tools_group">Nástroje</string>
+
+    <string name="selection_hint_single">Kliknutím na skupinu přesunete vybranou aplikaci.</string>
+    <string name="selection_hint_multiple">Vybráno %d aplikací. Kliknutím na skupinu přesunete vybranou aplikaci.</string>
 
     <string-array name="sort_options">
         <item>↓ Název</item>

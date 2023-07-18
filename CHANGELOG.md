@@ -1,6 +1,23 @@
-# Latest version: [piLauncherNext_111.apk](https://github.com/Veticia/binaries/raw/main/releases/piLauncherNext_111.apk)
+# Latest version: [piLauncherNext_v117+1.1.7.apk](https://github.com/JarJarBlinkz/PiLauncherNext/releases/download/v117/PiLauncherNext.v117+1.1.7.apk))
 
 ## Changelog
+
+### 1.1.7
+Added:
+- VRPlayer_Shortcut which gives you the ability to add a vr animation player pinned to taskbar to use as a shortcut to open and close the launcher.
+- Added a webview for Coming Soon & Pre-Orders in the settings screen as a quick reference guide of new content coming to quest & auto updates every 7 days
+- Fixed some typos
+- Updated some language packs
+- Removed ability to use explore icon as shortcut from settings (did not always work)
+- Made all icons uniform and correctly spaced
+- Added games and media tabs to main screen
+- Removed settings shortcut from top right of main window as pressing B button on controller opens settings window
+- Icons can be moved to specific tabs to organise your library
+
+
+
+-- Previous additions from original fork below --
+
 ### 1.1.1
 - (After consulting my lawyers) Reverted "download icons directly from Pico store" to not make Pico angry at me
 

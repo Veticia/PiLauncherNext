@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
+    <string name="default_media_group" translatable="false">Media</string>
+    <string name="default_games_group" translatable="false">Games</string>
     <string name="add_group">Add group</string>
     <string name="delete_group">Delete group</string>
     <string name="edit_group">Edit group</string>
@@ -13,6 +15,7 @@
     <string name="settings_device">Device settings</string>
     <string name="settings_look">Launcher settings</string>
     <string name="settings_platforms">Platforms</string>
+    <string name="settings_webview" translatable="false">Coming Soon &amp; Pre-Orders</string>
     <string name="settings_tweaks">System tweaks</string>
     <string name="background_opacity">Background opacity</string>
     <string name="icons_size">Icons size</string>
@@ -23,14 +26,17 @@
     <string name="service_explore_app">Explore app</string>
     <string name="service_os_updater">OS updater</string>
 
-    <string name="accesibility_label">Replace Explore app</string>
-    <string name="accesibility_button">Open settings</string>
-    <string name="accesibility_tooltip" >Enable 爪 Launcher in accesibility menu</string>
+    <string name="accessibility_label">Replace Explore app</string>
+    <string name="accessibility_button">Open settings</string>
+    <string name="accessibility_tooltip" >Enable 爪 Launcher in accessibility menu</string>
     <string name="icons_style">Icons style</string>
     <string name="update_header">New version available</string>
     <string name="autorun">Launch 爪 Launcher with system startup</string>
     <string name="failed_to_launch">Failed to launch</string>
     <string name="default_tools_group">Tools</string>
+
+    <string name="selection_hint_single">Click a group to move the selected app.</string>
+    <string name="selection_hint_multiple">%d apps selected. Click a group to move the selected app.</string>
 
     <string-array name="sort_options">
         <item>↓ Name</item>

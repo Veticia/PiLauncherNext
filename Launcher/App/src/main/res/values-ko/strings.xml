@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 런처-</string>
     <string name="default_apps_group">앱</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">앱 살펴보기</string>
     <string name="service_os_updater">OS 업데이터</string>
 
-    <string name="accesibility_label">애플리케이살펴보기션 교체</string>
-    <string name="accesibility_button">설정 열기</string>
-    <string name="accesibility_tooltip">접근성 메뉴에서 爪 런처 활성화</string>
+    <string name="accessibility_label">애플리케이살펴보기션 교체</string>
+    <string name="accessibility_button">설정 열기</string>
+    <string name="accessibility_tooltip">접근성 메뉴에서 爪 런처 활성화</string>
     <string name="icons_style">아이콘 스타일</string>
     <string name="update_header">새 버전 사용 가능</string>
     <string name="autorun">시스템 시작시 爪 런처 실행</string>
     <string name="failed_to_launch">시작 실패</string>
     <string name="default_tools_group">도구</string>
+
+    <string name="selection_hint_single">선택한 앱을 이동하려면 그룹을 클릭하세요.</string>
+    <string name="selection_hint_multiple">%d개의 앱이 선택되었습니다. 선택한 앱을 이동하려면 그룹을 클릭하세요.</string>
 
     <string-array name="sort_options">
         <item>↓ 이름</item>

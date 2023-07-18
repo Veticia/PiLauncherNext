@@ -1,42 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:id="@+id/linearLayoutMain">
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <LinearLayout
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <GridView
                 android:id="@+id/groupsView"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:padding="0dp"
+                android:background="@drawable/bkg_pi"
+                android:divider="#00000000"
                 android:dividerHeight="0dp"
-                android:divider="#00000000" />
+                android:padding="0dp" />
 
             <android.widget.TextView
                 android:id="@+id/filler"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
+
+            <Spinner
+                android:id="@+id/sort"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/bkg_pi"
+                android:dropDownVerticalOffset="40dp"
+                android:popupBackground="@drawable/bkg_dropdown"
+                android:scaleType="fitCenter"
+                android:shadowColor="#80000000"
+                android:shadowRadius="5"
+                android:spinnerMode="dropdown"
+                android:textColor="@android:color/white"
+                android:theme="@style/spinnerItemStyle"
+                app:strokeColor="#80000000"
+                app:strokeWidth="1.5dp" />
+
+            <ImageView
+                android:id="@+id/pi"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bkg_pi"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:scaleType="fitCenter"
+                android:shadowColor="#80000000"
+                android:shadowRadius="5"
+                android:src="@drawable/ic_mainmenu"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/update"
@@ -51,38 +85,8 @@
                 android:shadowColor="#80000000"
                 android:shadowRadius="5"
                 android:src="@android:drawable/stat_notify_sync"
-                android:visibility="gone" />
+                tools:visibility="gone" />
 
-            <Spinner
-                android:id="@+id/sort"
-                android:theme="@style/spinnerItemStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:dropDownVerticalOffset="40dp"
-                android:popupBackground="@drawable/bkg_dropdown"
-                android:background="@drawable/bkg_pi"
-                android:spinnerMode="dropdown"
-                android:textColor="@android:color/white"
-                android:scaleType="fitCenter"
-                android:shadowColor="#80000000"
-                android:shadowRadius="5"
-                app:strokeColor="#80000000"
-                app:strokeWidth="1.5dp"
-            />
-
-            <ImageView
-                android:id="@+id/pi"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:background="@drawable/bkg_pi"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:scaleType="fitCenter"
-                android:shadowColor="#80000000"
-                android:shadowRadius="5"
-                android:src="@drawable/ic_mainmenu" />
         </LinearLayout>
 
         <GridView
@@ -90,6 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:baselineAligned="false"
             android:columnWidth="101dp"
             android:gravity="center"
             android:horizontalSpacing="15dp"
@@ -99,10 +104,22 @@
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
             android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="15dp"
-            android:baselineAligned="false"
-            android:scrollbars="none"/>
+            android:verticalSpacing="15dp" />
+
+        <android.widget.TextView
+            android:id="@+id/SelectionHint"
+            style="@style/SettingSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bkg_dialog"
+            android:visibility="invisible" />
+
     </LinearLayout>
 
     <android.widget.TextView

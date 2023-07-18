@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Sovellukset</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">Tutustu-sovellus</string>
     <string name="service_os_updater">OS-päivitys</string>
 
-    <string name="accesibility_label">Vaihda Tutustu-sovellus</string>
-    <string name="accesibility_button">Avaa asetukset</string>
-    <string name="accesibility_tooltip">Ota käyttöön 爪 Launcher esteettömyysvalikossa</string>
+    <string name="accessibility_label">Vaihda Tutustu-sovellus</string>
+    <string name="accessibility_button">Avaa asetukset</string>
+    <string name="accessibility_tooltip">Ota käyttöön 爪 Launcher esteettömyysvalikossa</string>
     <string name="icons_style">Kuvakkeet tyyli</string>
     <string name="update_header">Uusi versio on saatavilla</string>
     <string name="autorun">Käynnistä 爪 Launcher järjestelmän käynnistyksen yhteydessä</string>
     <string name="failed_to_launch">Käynnistys epäonnistui</string>
     <string name="default_tools_group">Työkalut</string>
+
+    <string name="selection_hint_single">Siirrä valittu sovellus napsauttamalla ryhmää.</string>
+    <string name="selection_hint_multiple">%d sovellusta valittu. Siirrä valittu sovellus napsauttamalla ryhmää.</string>
 
     <string-array name="sort_options">
         <item>↓ Nimi</item>

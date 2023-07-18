@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">"-爪 ランチャー "</string>
     <string name="default_apps_group">アプリ</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">探索アプリ</string>
     <string name="service_os_updater">OS アップデーター</string>
 
-    <string name="accesibility_label">探索アプリを置き換える</string>
-    <string name="accesibility_button">設定を開く</string>
-    <string name="accesibility_tooltip">アクセシビリティ メニューで 爪 ランチャーを有効にする</string>
+    <string name="accessibility_label">探索アプリを置き換える</string>
+    <string name="accessibility_button">設定を開く</string>
+    <string name="accessibility_tooltip">アクセシビリティ メニューで 爪 ランチャーを有効にする</string>
     <string name="icons_style">アイコンのスタイル</string>
     <string name="update_header">新バージョンを発売</string>
     <string name="autorun">システム起動時に 爪 ランチャーを起動します</string>
     <string name="failed_to_launch">起動に失敗しました</string>
     <string name="default_tools_group">ツール</string>
+
+    <string name="selection_hint_single">グループをクリックして、選択したアプリを移動します。</string>
+    <string name="selection_hint_multiple">%d 個のアプリが選択されました。グループをクリックして、選択したアプリを移動します。</string>
 
     <string-array name="sort_options">
         <item>↓ 名前</item>

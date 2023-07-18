@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Pelancar-</string>
     <string name="default_apps_group">Apl</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">Apl Teroka</string>
     <string name="service_os_updater">Pengemas kini OS</string>
 
-    <string name="accesibility_label">Gantikan apl Teroka</string>
-    <string name="accesibility_button">Buka tetapan</string>
-    <string name="accesibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>
+    <string name="accessibility_label">Gantikan apl Teroka</string>
+    <string name="accessibility_button">Buka tetapan</string>
+    <string name="accessibility_tooltip">Dayakan 爪 Pelancar daripada menu kebolehaksesan</string>
     <string name="icons_style">Gaya ikon</string>
     <string name="update_header">Versi baharu tersedia</string>
     <string name="autorun">Lancarkan 爪 Pelancar dengan permulaan sistem</string>
     <string name="failed_to_launch">Gagal melancarkan</string>
     <string name="default_tools_group">Alat-alat</string>
+
+    <string name="selection_hint_single">Klik kumpulan untuk mengalihkan apl yang dipilih.</string>
+    <string name="selection_hint_multiple">%d apl dipilih. Klik kumpulan untuk mengalihkan apl yang dipilih.</string>
 
     <string-array name="sort_options">
         <item>↓ Nama</item>

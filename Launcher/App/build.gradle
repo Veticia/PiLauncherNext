@@ -21,8 +21,8 @@ android {
         minSdkVersion 23
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 23
-        versionCode 111
-        versionName "1.1.1"
+        versionCode 117
+        versionName "1.1.7"
         signingConfig signingConfigs.release
     }
 
@@ -41,7 +41,7 @@ android {
         disable 'Accessibility'
     }
     buildToolsVersion '33.0.0'
-    namespace 'com.veticia.piLauncherNext'
+    namespace 'com.jarjarblinkz.piLauncherNext'
 }
 
 dependencies {

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">App Udforsk</string>
     <string name="service_os_updater">OS opdatering</string>
 
-    <string name="accesibility_label">Udskift appen Udforsk</string>
-    <string name="accesibility_button">Åbn indstillinger</string>
-    <string name="accesibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>
+    <string name="accessibility_label">Udskift appen Udforsk</string>
+    <string name="accessibility_button">Åbn indstillinger</string>
+    <string name="accessibility_tooltip">Aktiver 爪 Launcher i tilgængelighedsmenuen</string>
     <string name="icons_style">Ikoner stil</string>
     <string name="update_header">Ny version tilgængelig</string>
     <string name="autorun">Start 爪 Launcher ved systemstart</string>
     <string name="failed_to_launch">Kunne ikke starte</string>
     <string name="default_tools_group">Værktøjer</string>
+
+    <string name="selection_hint_single">Klik på en gruppe for at flytte den valgte app.</string>
+    <string name="selection_hint_multiple">%d apps er valgt. Klik på en gruppe for at flytte den valgte app.</string>
 
     <string-array name="sort_options">
         <item>↓ Navn</item>

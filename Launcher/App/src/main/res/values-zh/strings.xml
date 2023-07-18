@@ -23,14 +23,17 @@
     <string name="service_explore_app">浏览器应用</string>
     <string name="service_os_updater">系统升级</string>
 
-    <string name="accesibility_label">替换浏览应用</string>
-    <string name="accesibility_button">打开设置</string>
-    <string name="accesibility_tooltip">在辅助功能菜单中启用爪启动器</string>
+    <string name="accessibility_label">替换浏览应用</string>
+    <string name="accessibility_button">打开设置</string>
+    <string name="accessibility_tooltip">在辅助功能菜单中启用爪启动器</string>
     <string name="icons_style">图标样式</string>
     <string name="update_header">有新版本可用</string>
     <string name="autorun">启动爪启动器与系统启动</string>
     <string name="failed_to_launch">启动失败</string>
     <string name="default_tools_group">工具</string>
+
+    <string name="selection_hint_single">单击一个组以移动选定的应用程序。</string>
+    <string name="selection_hint_multiple">选择了 %d 个应用程序。单击一个组以移动选定的应用程序。</string>
 
     <string-array name="sort_options">
         <item>↓ 名称</item>

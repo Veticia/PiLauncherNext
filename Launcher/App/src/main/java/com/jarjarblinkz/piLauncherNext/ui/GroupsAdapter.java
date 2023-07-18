@@ -1,4 +1,4 @@
-package com.veticia.piLauncherNext.ui;
+package com.jarjarblinkz.piLauncherNext.ui;
 
 import android.app.AlertDialog;
 import android.graphics.Color;
@@ -11,9 +11,9 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.veticia.piLauncherNext.MainActivity;
-import com.veticia.piLauncherNext.R;
-import com.veticia.piLauncherNext.SettingsProvider;
+import com.jarjarblinkz.piLauncherNext.MainActivity;
+import com.jarjarblinkz.piLauncherNext.R;
+import com.jarjarblinkz.piLauncherNext.SettingsProvider;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -67,6 +67,23 @@ public class GroupsAdapter extends BaseAdapter {
             textView = itemView.findViewById(R.id.textLabel);
             menu = itemView.findViewById(R.id.menu);
         }
+    }
+
+    public void setGroup(String packageName, int position) {
+        // add group or hidden group selection
+        String name = appGroups.get(position);
+        List<String> appGroupsList = settingsProvider.getAppGroupsSorted(false);
+        if (appGroupsList.size() + 1 == position) {
+            name = settingsProvider.addGroup();
+        } else if (appGroupsList.size() == position) {
+            name = HIDDEN_GROUP;
+        }
+
+        // move app into group
+        Map<String, String> apps = settingsProvider.getAppList();
+        apps.remove(packageName);
+        apps.put(packageName, name);
+        settingsProvider.setAppList(apps);
     }
 
     @Override
@@ -167,24 +184,12 @@ public class GroupsAdapter extends BaseAdapter {
                 setLook(position, finalConvertView, holder.menu);
             } else if (event.getAction() == DragEvent.ACTION_DROP) {
                 // add group or hidden group selection
-                String name = appGroups.get(position);
-                List<String> appGroupsList = settingsProvider.getAppGroupsSorted(false);
-                if (appGroupsList.size() + 1 == position) {
-                    name = settingsProvider.addGroup();
-                } else if (appGroupsList.size() == position) {
-                    name = HIDDEN_GROUP;
-                }
-
-                // move app into group
                 String packageName = mainActivity.getSelectedPackage();
-                Set<String> selectedGroup = settingsProvider.getSelectedGroups();
-                Map<String, String> apps = settingsProvider.getAppList();
-                apps.remove(packageName);
-                apps.put(packageName, name);
-                settingsProvider.setAppList(apps);
+                setGroup(mainActivity.getSelectedPackage(), position);
 
                 // false to dragged icon fly back
-                return !selectedGroup.contains(name);
+                Set<String> selectedGroup = settingsProvider.getSelectedGroups();
+                return !selectedGroup.contains(packageName);
             }
             return true;
         });

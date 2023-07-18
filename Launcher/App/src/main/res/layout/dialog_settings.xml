@@ -9,54 +9,47 @@
     android:orientation="vertical">
 
     <android.widget.TextView
-        android:layout_width="wrap_content"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="20dp"
+        android:text="@string/app_name"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:text="@string/app_name"/>
+        tools:ignore="TextSizeCheck" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_look"
-            android:layout_width="120dp"
+            android:layout_width="123dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_look"
             app:icon="@drawable/ic_look"
             app:text="@string/settings_look"
             tools:ignore="UnusedAttribute" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_device"
-            android:layout_width="120dp"
+            android:layout_width="123dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_device"
             app:icon="@drawable/ic_device"
             app:text="@string/settings_device"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute,TextSizeCheck" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_apps"
-            android:layout_width="120dp"
+            android:layout_width="123dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_apps_enable"
             app:icon="@drawable/ic_editing_on"
             app:text="@string/settings_apps_enable"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute,TextSizeCheck" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
-            android:id="@+id/settings_platforms"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:tooltipText="@string/settings_platforms"
-            app:icon="@drawable/ic_platforms"
-            app:text="@string/settings_platforms"
-            tools:ignore="UnusedAttribute" />
     </LinearLayout>
 
     <LinearLayout
@@ -64,13 +57,34 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/settings_tweaks"
-            android:layout_width="120dp"
+            android:layout_width="123dp"
             android:layout_height="120dp"
             android:tooltipText="@string/settings_tweaks"
             app:icon="@drawable/ic_tweaks"
             app:text="@string/settings_tweaks"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute,TextSizeCheck" />
+
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+            android:id="@+id/settings_platforms"
+            android:layout_width="123dp"
+            android:layout_height="120dp"
+            android:tooltipText="@string/settings_platforms"
+            app:icon="@drawable/ic_platforms"
+            app:text="@string/settings_platforms"
+            tools:ignore="UnusedAttribute">
+
+        </com.jarjarblinkz.piLauncherNext.ui.SettingsGroup>
+
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
+            android:id="@+id/settings_webview"
+            android:layout_width="123dp"
+            android:layout_height="120dp"
+            app:icon="@drawable/meta_logo"
+            app:text="@string/settings_webview"
+            tools:ignore="TextSizeCheck" />
+
     </LinearLayout>
+
 </LinearLayout>

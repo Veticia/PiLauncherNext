@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.veticia.piLauncherNext.ui.TextView
+    <com.jarjarblinkz.piLauncherNext.ui.TextView
         android:id="@+id/textLabel"
         android:singleLine="true"
         android:textSize="20sp"

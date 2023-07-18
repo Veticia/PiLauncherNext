@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/service_app_shortcut"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -31,7 +31,7 @@
             app:text="@string/service_app_shortcut"
             tools:ignore="UnusedAttribute" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/service_explore_app"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -40,7 +40,7 @@
             app:text="@string/service_explore_app"
             tools:ignore="UnusedAttribute" />
 
-        <com.veticia.piLauncherNext.ui.SettingsGroup
+        <com.jarjarblinkz.piLauncherNext.ui.SettingsGroup
             android:id="@+id/service_os_updater"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -49,4 +49,5 @@
             app:text="@string/service_os_updater"
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
+
 </LinearLayout>

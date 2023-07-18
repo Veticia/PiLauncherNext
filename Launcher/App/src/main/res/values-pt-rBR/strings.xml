@@ -22,14 +22,17 @@
     <string name="service_app_shortcut">Atalho do aplicativo</string>
     <string name="service_explore_app">Aplicativo Explorar</string>
     <string name="service_os_updater">Atualizador do sistema</string>
-    <string name="accesibility_label">Substituir a aplicação Explore</string>
-    <string name="accesibility_button">Configurações abertas</string>
-    <string name="accesibility_tooltip">Habilite o lançador 爪 a partir do menu de acessibilidade</string>
+    <string name="accessibility_label">Substituir a aplicação Explore</string>
+    <string name="accessibility_button">Configurações abertas</string>
+    <string name="accessibility_tooltip">Habilite o lançador 爪 a partir do menu de acessibilidade</string>
     <string name="icons_style">Estilo Ícone</string>
     <string name="update_header">Nova versão disponível</string>
     <string name="autorun">Inicie o 爪 Launcher com a inicialização do sistema</string>
     <string name="failed_to_launch">Falha ao iniciar</string>
     <string name="default_tools_group">Ferramentas</string>
+
+    <string name="selection_hint_single">Clique em um grupo para mover o aplicativo selecionado.</string>
+    <string name="selection_hint_multiple">%d aplicativos selecionados. Clique em um grupo para mover o aplicativo selecionado.</string>
 
     <string-array name="sort_options">
         <item>↓ Nome</item>

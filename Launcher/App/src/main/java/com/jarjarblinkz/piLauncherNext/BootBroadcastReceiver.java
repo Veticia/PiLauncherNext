@@ -1,7 +1,7 @@
-package com.veticia.piLauncherNext;
+package com.jarjarblinkz.piLauncherNext;
 
-import static com.veticia.piLauncherNext.MainActivity.sharedPreferences;
-import static com.veticia.piLauncherNext.SettingsProvider.KEY_AUTORUN;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.sharedPreferences;
+import static com.jarjarblinkz.piLauncherNext.SettingsProvider.KEY_AUTORUN;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

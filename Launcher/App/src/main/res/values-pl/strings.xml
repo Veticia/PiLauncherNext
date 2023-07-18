@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplikacje</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">Aplikacja Odkrywaj</string>
     <string name="service_os_updater">Aktualizator systemu</string>
 
-    <string name="accesibility_label">Zastąp aplikację Odkrywaj</string>
-    <string name="accesibility_button">Otwórz ustawienia</string>
-    <string name="accesibility_tooltip">Włącz 爪 Launcher w menu ułatwień dostępu</string>
+    <string name="accessibility_label">Zastąp aplikację Odkrywaj</string>
+    <string name="accessibility_button">Otwórz ustawienia</string>
+    <string name="accessibility_tooltip">Włącz 爪 Launcher w menu ułatwień dostępu</string>
     <string name="icons_style">Styl ikon</string>
     <string name="update_header">Dostępna nowa wersja</string>
     <string name="autorun">Uruchom 爪 Launcher wraz ze startem systemu</string>
     <string name="failed_to_launch">Nie udało się uruchomić</string>
     <string name="default_tools_group">Narzędzia</string>
+
+    <string name="selection_hint_single">Kliknij grupę, aby przenieść wybraną aplikację.</string>
+    <string name="selection_hint_multiple">Wybrano %d aplikacji. Kliknij grupę, aby przenieść wybraną aplikację.</string>
 
     <string-array name="sort_options">
         <item>↓ Nazwa</item>

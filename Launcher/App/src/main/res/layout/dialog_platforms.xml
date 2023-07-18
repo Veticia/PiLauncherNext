@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,7 +38,8 @@
             android:text="Android apps"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:trackTint="@color/switch_track_color" />
+            android:trackTint="@color/switch_track_color"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,7 +64,8 @@
             android:text="Sony Playstation Portable (PPSSPP)"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:trackTint="@color/switch_track_color" />
+            android:trackTint="@color/switch_track_color"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
     </LinearLayout>
 
 
@@ -88,6 +91,7 @@
             android:text="Virtual Reality"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:trackTint="@color/switch_track_color" />
+            android:trackTint="@color/switch_track_color"
+            tools:ignore="HardcodedText,VisualLintButtonSize" />
     </LinearLayout>
 </LinearLayout>

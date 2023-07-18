@@ -1,4 +1,4 @@
-package com.veticia.piLauncherNext;
+package com.jarjarblinkz.piLauncherNext;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

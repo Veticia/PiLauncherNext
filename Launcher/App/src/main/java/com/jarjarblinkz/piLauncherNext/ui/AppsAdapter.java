@@ -1,9 +1,9 @@
-package com.veticia.piLauncherNext.ui;
+package com.jarjarblinkz.piLauncherNext.ui;
 
-import static com.veticia.piLauncherNext.MainActivity.DEFAULT_SCALE;
-import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
-import static com.veticia.piLauncherNext.MainActivity.STYLES;
-import static com.veticia.piLauncherNext.MainActivity.sharedPreferences;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.DEFAULT_SCALE;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.DEFAULT_STYLE;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.STYLES;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.sharedPreferences;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -33,11 +33,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.veticia.piLauncherNext.ImageUtils;
-import com.veticia.piLauncherNext.MainActivity;
-import com.veticia.piLauncherNext.R;
-import com.veticia.piLauncherNext.SettingsProvider;
-import com.veticia.piLauncherNext.platforms.AbstractPlatform;
+import com.jarjarblinkz.piLauncherNext.ImageUtils;
+import com.jarjarblinkz.piLauncherNext.MainActivity;
+import com.jarjarblinkz.piLauncherNext.R;
+import com.jarjarblinkz.piLauncherNext.SettingsProvider;
+import com.jarjarblinkz.piLauncherNext.platforms.AbstractPlatform;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -129,7 +129,7 @@ public class AppsAdapter extends BaseAdapter
 
             //Calculate text height
             holder.textView.measure(0, 0);
-            int textHeight = (int) holder.textView.getMeasuredHeight();
+            int textHeight = holder.textView.getMeasuredHeight();
 
             ViewGroup.LayoutParams params = holder.layout.getLayoutParams();
 
@@ -142,9 +142,9 @@ public class AppsAdapter extends BaseAdapter
                 }
             } else {
                 if(showTextLabels) {
-                    params.height = (int) (itemScale + textHeight);
+                    params.height = itemScale + textHeight;
                 }else{
-                    params.height = (int) itemScale;
+                    params.height = itemScale;
                 }
             }
             holder.layout.setLayoutParams(params);
@@ -162,16 +162,21 @@ public class AppsAdapter extends BaseAdapter
         if (isEditMode) {
             // short click for app details, long click to activate drag and drop
             holder.layout.setOnTouchListener((view, motionEvent) -> {
-                if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
-                        (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
-                    packageName = currentApp.packageName;
-                    lastClickTime = System.currentTimeMillis();
-                    ClipData dragData = ClipData.newPlainText(name, name);
-                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        view.startDragAndDrop(dragData, shadowBuilder, view, 0);
-                    } else {
-                        view.startDrag(dragData, shadowBuilder, view, 0);
+                if (AbstractPlatform.isOculusHeadset()) {
+                    boolean selected = mainActivityContext.selectApp(currentApp.packageName);
+                    view.setAlpha(selected? 0.5F : 1.0F);
+                } else {
+                    if ((motionEvent.getAction() == MotionEvent.ACTION_DOWN) ||
+                            (motionEvent.getAction() == MotionEvent.ACTION_POINTER_DOWN)) {
+                        packageName = currentApp.packageName;
+                        lastClickTime = System.currentTimeMillis();
+                        ClipData dragData = ClipData.newPlainText(name, name);
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            view.startDragAndDrop(dragData, shadowBuilder, view, 0);
+                        } else {
+                            view.startDrag(dragData, shadowBuilder, view, 0);
+                        }
                     }
                 }
                 return false;

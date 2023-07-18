@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
@@ -13,6 +12,7 @@
     <string name="settings_device">Geräte\neinstellungen</string>
     <string name="settings_look">Launcher\nEinstellungen</string>
     <string name="settings_platforms">Plattformen</string>
+    <string name="settings_webview">Neue Herausgaben</string>
     <string name="settings_tweaks">System Tweaks</string>
     <string name="background_opacity">Transparenz des Hintergrundes</string>
     <string name="icons_size">Icons Größe</string>
@@ -23,14 +23,17 @@
     <string name="service_explore_app">Erkunden App</string>
     <string name="service_os_updater">OS Updater</string>
 
-    <string name="accesibility_label">Ersetzen Sie die Erkunden-App</string>
-    <string name="accesibility_button">Einstellungen öffnen</string>
-    <string name="accesibility_tooltip">Aktivieren Sie 爪 Launcher im Bedienungshilfemenü</string>
+    <string name="accessibility_label">Ersetzen Sie die Erkunden-App</string>
+    <string name="accessibility_button">Einstellungen öffnen</string>
+    <string name="accessibility_tooltip">Aktivieren Sie 爪 Launcher im Bedienungshilfemenü</string>
     <string name="icons_style">Icons-Stil</string>
     <string name="update_header">Neue Version verfügbar</string>
     <string name="autorun">爪 Launcher beim Systemstart ausführen</string>
     <string name="failed_to_launch">Start fehlgeschlagen</string>
     <string name="default_tools_group">Werkzeuge</string>
+
+    <string name="selection_hint_single">Klicken Sie auf eine Gruppe, um die ausgewählte App zu verschieben.</string>
+    <string name="selection_hint_multiple">%d Apps ausgewählt. Klicken Sie auf eine Gruppe, um die ausgewählte App zu verschieben.</string>
 
     <string-array name="sort_options">
         <item>↓ Name</item>

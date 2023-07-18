@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">ปพลิเคชัน</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">แอพสำรวจ</string>
     <string name="service_os_updater">ตัวอัปเดตระบบปฏิบัติการ</string>
 
-    <string name="accesibility_label">แทนที่แอปสำรวจ</string>
-    <string name="accesibility_button">เปิดการตั้งค่า</string>
-    <string name="accesibility_tooltip">เปิดใช้งาน 爪 Launcher ในเมนูการเข้าถึง</string>
+    <string name="accessibility_label">แทนที่แอปสำรวจ</string>
+    <string name="accessibility_button">เปิดการตั้งค่า</string>
+    <string name="accessibility_tooltip">เปิดใช้งาน 爪 Launcher ในเมนูการเข้าถึง</string>
     <string name="icons_style">สไตล์ไอคอน</string>
     <string name="update_header">มีเวอร์ชันใหม่</string>
     <string name="autorun">เปิดใช้งาน 爪 Launcher พร้อมกับการเริ่มต้นระบบ</string>
     <string name="failed_to_launch">เริ่มต้นไม่สำเร็จ</string>
     <string name="default_tools_group">เครื่องมือ</string>
+
+    <string name="selection_hint_single">คลิกกลุ่มเพื่อย้ายแอพที่เลือก</string>
+    <string name="selection_hint_multiple">เลือกแล้ว %d แอป คลิกกลุ่มเพื่อย้ายแอพที่เลือก</string>
 
     <string-array name="sort_options">
         <item>↓ ชื่อ</item>

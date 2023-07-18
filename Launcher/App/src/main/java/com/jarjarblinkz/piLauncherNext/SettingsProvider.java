@@ -1,16 +1,17 @@
-package com.veticia.piLauncherNext;
+package com.jarjarblinkz.piLauncherNext;
 
-import static com.veticia.piLauncherNext.platforms.AbstractPlatform.isPico3Pro;
+import static com.jarjarblinkz.piLauncherNext.platforms.AbstractPlatform.isPico3Pro;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import com.veticia.piLauncherNext.platforms.AndroidPlatform;
-import com.veticia.piLauncherNext.platforms.PSPPlatform;
-import com.veticia.piLauncherNext.platforms.VRPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.AndroidPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.PSPPlatform;
+import com.jarjarblinkz.piLauncherNext.platforms.VRPlatform;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +48,9 @@ public class SettingsProvider
     private final String KEY_SELECTED_GROUPS = "prefSelectedGroups";
     private final String SEPARATOR = "#@%";
 
+    @SuppressLint("StaticFieldLeak")
     private static SettingsProvider instance;
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     public static synchronized SettingsProvider getInstance (Context context)
@@ -148,7 +151,7 @@ public class SettingsProvider
             {
                 // Check for system app
                 boolean isSystemApp = (installedApplication.flags & ApplicationInfo.FLAG_SYSTEM) == 1;
-                if (pkg.startsWith("com.oculus.browser")) isSystemApp = false;              //X
+                if (pkg.startsWith("com.oculus.browser")) isSystemApp = true;              //X
                 if (pkg.startsWith("metapwa")) isSystemApp = true;
                 if (pkg.startsWith("oculuspwa")) isSystemApp = true;
                 if (pkg.startsWith("com.facebook.arvr")) isSystemApp = true;
@@ -271,6 +274,13 @@ public class SettingsProvider
             Set<String> defClone = new HashSet<>();
             defClone.add(defAppsGroup);
             mSelectedGroups = mPreferences.getStringSet(KEY_SELECTED_GROUPS, defClone);
+
+            String defmediaGroup = context.getString(R.string.default_media_group);
+            def.add(defmediaGroup);
+
+            String defgamesGroup = context.getString(R.string.default_games_group);
+            def.add(defgamesGroup);
+
             String defToolsGroup = context.getString(R.string.default_tools_group);
             def.add(defToolsGroup);
             String defPSPgroup = "PSP";

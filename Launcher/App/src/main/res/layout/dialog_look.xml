@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,42 +27,45 @@
 
             <ImageView
                 android:id="@+id/theme0"
-                android:layout_width="80dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
-                android:src="@drawable/bkg_default" />
+                android:src="@drawable/bkg_default"
+                tools:ignore="ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/theme1"
-                android:layout_width="80dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_glass" />
 
             <ImageView
                 android:id="@+id/theme2"
-                android:layout_width="80dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_rgb" />
 
             <ImageView
                 android:id="@+id/theme3"
-                android:layout_width="80dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
-                android:src="@drawable/bkg_skin" />
+                android:src="@drawable/bkg_skin"
+                tools:ignore="ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/theme4"
-                android:layout_width="80dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_underwater" />
 
+
             <ImageView
                 android:id="@+id/theme_custom"
-                android:layout_width="80dp"
+                android:layout_width="63dp"
                 android:layout_height="60dp"
                 android:padding="5dp"
                 android:src="@drawable/bkg_custom" />
@@ -94,9 +98,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:visibility="gone">
 
             <android.widget.TextView
                 android:layout_width="wrap_content"
@@ -105,36 +110,36 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/style0"
-                android:layout_width="138dp"
-                android:layout_height="138dp"
-                android:padding="5dp"
-                android:src="@drawable/com_valvesoftware_alyx_banners" />
+                <ImageView
+                    android:id="@+id/style0"
+                    android:layout_width="93dp"
+                    android:layout_height="138dp"
+                    android:padding="5dp"
+                    android:src="@drawable/com_valvesoftware_alyx_banners" />
 
-            <ImageView
-                android:id="@+id/style1"
-                android:layout_width="138dp"
-                android:layout_height="138dp"
-                android:padding="5dp"
-                android:src="@drawable/com_valvesoftware_alyx_icons" />
+                <ImageView
+                    android:id="@+id/style1"
+                    android:layout_width="93dp"
+                    android:layout_height="138dp"
+                    android:padding="5dp"
+                    android:src="@drawable/com_valvesoftware_alyx_icons" />
 
-            <ImageView
-                android:id="@+id/style2"
-                android:layout_width="138dp"
-                android:layout_height="138dp"
-                android:padding="5dp"
-                android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
+                <ImageView
+                    android:id="@+id/style2"
+                    android:layout_width="93dp"
+                    android:layout_height="138dp"
+                    android:padding="5dp"
+                    android:src="@drawable/com_valvesoftware_alyx_tenaldo" />
+            </LinearLayout>
+
         </LinearLayout>
-
-    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,7 +180,8 @@
                 android:text="@string/show_app_names"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color" />
+                android:trackTint="@color/switch_track_color"
+                tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -183,7 +189,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -194,15 +201,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/accesibility_label"
+                    android:text="@string/accessibility_label"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@+id/open_accesibility"
+                    android:id="@+id/open_accessibility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/accesibility_button" />
+                    android:text="@string/accessibility_button" />
 
             </LinearLayout>
 
@@ -210,7 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/accesibility_tooltip"
+                android:text="@string/accessibility_tooltip"
                 android:textAlignment="center"
                 android:textColor="@android:color/tertiary_text_light"
                 android:textSize="16sp" />
@@ -222,7 +229,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:visibility="gone">
 
             <Switch
                 android:id="@+id/checkbox_autorun"
@@ -233,7 +241,8 @@
                 android:text="@string/autorun"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:trackTint="@color/switch_track_color" />
+                android:trackTint="@color/switch_track_color"
+                tools:visibility="invisible" />
         </LinearLayout>
 
     </LinearLayout>

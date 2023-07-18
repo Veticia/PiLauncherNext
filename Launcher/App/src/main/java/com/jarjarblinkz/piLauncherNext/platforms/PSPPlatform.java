@@ -1,4 +1,4 @@
-package com.veticia.piLauncherNext.platforms;
+package com.jarjarblinkz.piLauncherNext.platforms;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.veticia.piLauncherNext.MainActivity;
-import com.veticia.piLauncherNext.SettingsProvider;
+import com.jarjarblinkz.piLauncherNext.MainActivity;
+import com.jarjarblinkz.piLauncherNext.SettingsProvider;
 
 import net.didion.loopy.iso9660.ISO9660FileEntry;
 import net.didion.loopy.iso9660.ISO9660FileSystem;

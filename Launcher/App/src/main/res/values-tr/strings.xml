@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Uygulamalar</string>
@@ -22,14 +21,18 @@
     <string name="service_app_shortcut">Uygulama kısayolu</string>
     <string name="service_explore_app">Uygulamayı keşfedin</string>
     <string name="service_os_updater">OS güncelleyici</string>
-    <string name="accesibility_label">Keşfet uygulamasını değiştirin</string>
-    <string name="accesibility_button">Ayarları aç</string>
-    <string name="accesibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
+
+    <string name="accessibility_label">Keşfet uygulamasını değiştirin</string>
+    <string name="accessibility_button">Ayarları aç</string>
+    <string name="accessibility_tooltip">Erişilebilirlik menüsünden 爪 başlatıcıyı etkinleştirin</string>
     <string name="icons_style">Simge stili</string>
     <string name="update_header">Yeni sürüm mevcut</string>
     <string name="autorun">Sistem başlangıcında 爪 Launcher\'ı başlatın</string>
     <string name="failed_to_launch">Başlatma başarısız oldu</string>
     <string name="default_tools_group">Araçlar</string>
+
+    <string name="selection_hint_single">Seçilen uygulamayı taşımak için bir grubu tıklayın.</string>
+    <string name="selection_hint_multiple">%d uygulama seçildi. Seçilen uygulamayı taşımak için bir grubu tıklayın.</string>
 
     <string-array name="sort_options">
         <item>↓ İsim</item>

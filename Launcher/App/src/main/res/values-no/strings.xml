@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">-爪 Launcher-</string>
+    <string name="app_name">-Claw Launcher-</string>
     <string name="default_apps_group">Apper</string>
     <string name="add_group">Legg til gruppe</string>
-    <string name="delete_group">Slette gruppe</string>
+    <string name="delete_group">Slett gruppe</string>
     <string name="edit_group">Rediger gruppe</string>
     <string name="app_details">Appdetaljer</string>
     <string name="apps_hidden">Skjult</string>
@@ -11,24 +11,24 @@
     <string name="settings_apps_enable">Aktiver redigering</string>
     <string name="settings_apps_disable">Deaktiver redigering</string>
     <string name="settings_device">Enhetsinnstillinger</string>
-    <string name="settings_look">Oppstartinnstillinger</string>
+    <string name="settings_look">Launcher-innstillinger</string>
     <string name="settings_platforms">Plattformer</string>
-    <string name="settings_tweaks">Systemtweaks</string>
+    <string name="settings_tweaks">Systemjusteringer</string>
     <string name="background_opacity">Bakgrunnsopasitet</string>
-    <string name="icons_size">Ikoner størrelse</string>
-    <string name="show_app_names">Vis navn på apper</string>
+    <string name="icons_size">Størrelse på ikoner</string>
+    <string name="show_app_names">Vis appnavn</string>
     <string name="start_shortcut">Åpne startprogrammet med Utforsk-ikonet fra systemdashbordet.</string>
 
     <string name="service_app_shortcut">App-snarvei</string>
     <string name="service_explore_app">Utforsk appen</string>
-    <string name="service_os_updater">Systemoppdaterer</string>
+    <string name="service_os_updater">OS-oppdatering</string>
 
-    <string name="accessibility_label">Bytt ut Utforsk-applikasjonen</string>
+    <string name="accessibility_label">Erstatt Utforsk-appen</string>
     <string name="accessibility_button">Åpne innstillinger</string>
-    <string name="accessibility_tooltip">Aktiver 爪-startprogrammet fra tilgjengelighetsmenyen</string>
-    <string name="icons_style">Ikon-stil</string>
+    <string name="accessibility_tooltip" >Aktiver 爪 Launcher i tilgjengelighetsmenyen</string>
+    <string name="icons_style">Ikoner stil</string>
     <string name="update_header">Ny versjon tilgjengelig</string>
-    <string name="autorun">Start 爪 Launcher ved systemoppstart</string>
+    <string name="autorun">Start 爪 Launcher med systemoppstart</string>
     <string name="failed_to_launch">Kunne ikke starte</string>
     <string name="default_tools_group">Verktøy</string>
 

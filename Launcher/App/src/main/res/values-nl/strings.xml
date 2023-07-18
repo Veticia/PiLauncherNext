@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Apps</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">Verkennen-app</string>
     <string name="service_os_updater">OS-updater</string>
 
-    <string name="accesibility_label">Vervang de Verkennen-app</string>
-    <string name="accesibility_button">Open instellingen</string>
-    <string name="accesibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
+    <string name="accessibility_label">Vervang de Verkennen-app</string>
+    <string name="accessibility_button">Open instellingen</string>
+    <string name="accessibility_tooltip">Schakel 爪 Launcher in het toegankelijkheidsmenu in</string>
     <string name="icons_style">Iconen stijl</string>
     <string name="update_header">Nieuwe versie beschikbaar</string>
     <string name="autorun">Start 爪 Launcher bij het opstarten van het systeem</string>
     <string name="failed_to_launch">Starten mislukt</string>
     <string name="default_tools_group">Gereedschap</string>
+
+    <string name="selection_hint_single">Klik op een groep om de geselecteerde app te verplaatsen.</string>
+    <string name="selection_hint_multiple">%d apps geselecteerd. Klik op een groep om de geselecteerde app te verplaatsen.</string>
 
     <string-array name="sort_options">
         <item>↓ Naam</item>

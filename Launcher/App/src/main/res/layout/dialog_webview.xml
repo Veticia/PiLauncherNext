@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:visibility="visible">
+    android:padding="20dp">
 
     <android.widget.TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:paddingBottom="20dp"
-        android:text="@string/update_header"
+        android:text="@string/settings_webview"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 
     <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/new_releases_webview"
+        android:layout_width="800dp"
+        android:layout_height="650dp"
+        tools:ignore="VisualLintBounds" />
 
 </LinearLayout>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">-爪 Launcher-</string>
     <string name="default_apps_group">Aplicații</string>
@@ -23,14 +22,17 @@
     <string name="service_explore_app">Aplicația Explorează</string>
     <string name="service_os_updater">Actualizator de sistem</string>
 
-    <string name="accesibility_label">Înlocuiți aplicația Explorează</string>
-    <string name="accesibility_button">Deschide setările</string>
-    <string name="accesibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
+    <string name="accessibility_label">Înlocuiți aplicația Explorează</string>
+    <string name="accessibility_button">Deschide setările</string>
+    <string name="accessibility_tooltip">Activați lansatorul 爪 din meniul de accesibilitate</string>
     <string name="icons_style">Stilul icoanei</string>
     <string name="update_header">Noua versiune disponibilă</string>
     <string name="autorun">Lansați 爪 Launcher la pornirea sistemului</string>
     <string name="failed_to_launch">Lansarea a eșuat</string>
     <string name="default_tools_group">Instrumente</string>
+
+    <string name="selection_hint_single">Faceți clic pe un grup pentru a muta aplicația selectată.</string>
+    <string name="selection_hint_multiple">%d aplicații selectate. Faceți clic pe un grup pentru a muta aplicația selectată.</string>
 
     <string-array name="sort_options">
         <item>↓ Nume</item>

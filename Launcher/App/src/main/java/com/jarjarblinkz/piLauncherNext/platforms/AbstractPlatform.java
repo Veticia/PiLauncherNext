@@ -1,8 +1,8 @@
-package com.veticia.piLauncherNext.platforms;
+package com.jarjarblinkz.piLauncherNext.platforms;
 
-import static com.veticia.piLauncherNext.MainActivity.DEFAULT_STYLE;
-import static com.veticia.piLauncherNext.MainActivity.STYLES;
-import static com.veticia.piLauncherNext.MainActivity.sharedPreferences;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.DEFAULT_STYLE;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.STYLES;
+import static com.jarjarblinkz.piLauncherNext.MainActivity.sharedPreferences;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,8 +19,7 @@ import android.widget.ImageView;
 
 import androidx.core.content.res.ResourcesCompat;
 
-import com.veticia.piLauncherNext.MainActivity;
-import com.veticia.piLauncherNext.SettingsProvider;
+import com.jarjarblinkz.piLauncherNext.SettingsProvider;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -32,7 +31,9 @@ import java.util.HashSet;
 
 public abstract class AbstractPlatform {
     final int style = sharedPreferences.getInt(SettingsProvider.KEY_CUSTOM_STYLE, DEFAULT_STYLE);
-    private final String ICONS1_URL = "https://raw.githubusercontent.com/Veticia/binaries/main/"+STYLES[style]+"/";
+    private final String ICONS1_URL = "https://raw.githubusercontent.com/basti564/LauncherIcons/main/oculus_landscape/";
+    //original url
+    //private final String ICONS1_URL = "https://raw.githubusercontent.com/veticia/binaries/main/"+STYLES[style]+"/";
     private static final String ICONS_FALLBACK_URL = "https://pilauncher.lwiczka.pl/get_icon.php?id=";
     protected static final HashMap<String, Drawable> iconCache = new HashMap<>();
     protected static final HashSet<String> ignoredIcons = new HashSet<>();
@@ -45,7 +46,7 @@ public abstract class AbstractPlatform {
                     //if (ignoredIcons.contains(STYLES[style] + "." + file.getName())) {
                         //ignored icon
                     //} else
-                    if (downloadIconFromUrl(ICONS1_URL + pkg + ".png", file)) {
+                    if (downloadIconFromUrl(ICONS1_URL + pkg + ".jpg", file)) {
                         activity.runOnUiThread(callback);
                     } else if (downloadIconFromUrl(ICONS_FALLBACK_URL + pkg + "&set=" + STYLES[style], file)) {
                         activity.runOnUiThread(callback);
@@ -108,18 +109,6 @@ public abstract class AbstractPlatform {
     public static void clearIconCache() {
         ignoredIcons.clear();
         iconCache.clear();
-    }
-
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static void clearAllIcons(MainActivity activity) {
-        for (String pkg : iconCache.keySet()) {
-            final File file = pkg2path(activity, pkg);
-            Log.i("Cache file", file.getAbsolutePath() + " | Exists: " + file.exists());
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-        clearIconCache();
     }
 
     public static AbstractPlatform getPlatform(ApplicationInfo app) {

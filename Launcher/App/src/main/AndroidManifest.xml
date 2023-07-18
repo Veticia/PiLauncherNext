@@ -24,7 +24,7 @@
         </receiver>
 
         <activity
-            android:name="com.veticia.piLauncherNext.MainActivity"
+            android:name="com.jarjarblinkz.piLauncherNext.MainActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden"
@@ -37,7 +37,7 @@
         </activity>
 
         <service
-            android:name="com.veticia.piLauncherNext.ButtonManager"
+            android:name="com.jarjarblinkz.piLauncherNext.ButtonManager"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="false">
